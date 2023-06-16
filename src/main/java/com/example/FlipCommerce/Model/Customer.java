@@ -21,10 +21,10 @@ import java.util.List;
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    @Column(name = "Customer_name")
+    @Column(name = "name")
     String name;
 
     @Column(name = "mobile",  nullable = false, unique = true)

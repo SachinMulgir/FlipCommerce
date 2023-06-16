@@ -16,11 +16,11 @@ import lombok.experimental.FieldDefaults;
 public class Item {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     int id;
 
-    @Column(name = "Required_quantity")
+
     int requiredQuantity;
 
     @ManyToOne

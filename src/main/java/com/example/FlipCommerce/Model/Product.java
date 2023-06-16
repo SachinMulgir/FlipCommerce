@@ -3,10 +3,7 @@ package com.example.FlipCommerce.Model;
 import com.example.FlipCommerce.Enum.Category;
 import com.example.FlipCommerce.Enum.Status;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.util.ArrayList;
@@ -18,10 +15,11 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name = "product")
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Builder
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     int id;
 
@@ -31,7 +29,6 @@ public class Product {
     @Column(name = "price")
     int price;
 
-    @Column(name = "available_quantity")
     int availableQuantity;
 
     @Column(name = "category")
@@ -39,6 +36,7 @@ public class Product {
     Category category;
 
     @Column(name = "status")
+    @Enumerated(EnumType.STRING)
     Status status;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)

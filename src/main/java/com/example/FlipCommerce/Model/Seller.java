@@ -1,10 +1,7 @@
 package com.example.FlipCommerce.Model;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.util.ArrayList;
@@ -16,10 +13,11 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name = "seller")
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Builder
 public class Seller {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     int id;
 

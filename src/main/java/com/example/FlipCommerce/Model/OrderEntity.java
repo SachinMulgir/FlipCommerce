@@ -17,34 +17,30 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "order")
+@Table(name = "orderEntity")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class OrderEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     int id;
 
-    @Column(name = "Order_id", nullable = false, unique = true)
+    @Column( nullable = false, unique = true)
     int orderId;            //UUID
 
-    @Column(name = "Quantity")
+    @Column(name = "quantity")
     int quantity;
 
-    @Column(name = "Total_Amount")
     int totalAmount;
 
     @CreationTimestamp
-    @Column(name = "Date_of_order")
     Date orderDate;
 
-    @Column(name = "Order_Status")
     @Enumerated(EnumType.STRING)
     Status status;
 
-    @Column(name = "Card_used")
-    Card cardUsed;                              //not mapped-> we will get ******1234 value;
+    String cardUsed;                              //not mapped-> we will get ******1234 value;
 
     @ManyToOne
     @JoinColumn

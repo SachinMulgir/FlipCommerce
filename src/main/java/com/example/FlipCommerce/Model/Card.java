@@ -7,9 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.hibernate.annotations.JoinColumnOrFormula;
 
-import java.util.Date;
+import java.sql.Date;
+
 
 @Entity
 @Data
@@ -20,21 +20,20 @@ import java.util.Date;
 public class Card {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     int id;
 
-    @Column(name = "cardNo", nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     String cardNo;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "Card_type")
     CardType cardType;
 
-    @Column(name = "Expiry_date")
+
     Date validTill;
 
-    @Column(name = "cvv", nullable = false)
+
     int cvv;
 
     @ManyToOne

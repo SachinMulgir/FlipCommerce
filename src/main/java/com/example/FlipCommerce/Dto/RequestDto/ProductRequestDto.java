@@ -1,0 +1,26 @@
+package com.example.FlipCommerce.Dto.RequestDto;
+
+import com.example.FlipCommerce.Enum.Category;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class ProductRequestDto {
+
+    String sellerEmail;
+
+    String name;
+
+    int price;
+
+    Category category;
+
+    int quantity;
+
+}
