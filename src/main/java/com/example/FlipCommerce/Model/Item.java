@@ -1,25 +1,22 @@
 package com.example.FlipCommerce.Model;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "item")
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Builder
+@Table(name = "item")
 public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     int id;
-
 
     int requiredQuantity;
 

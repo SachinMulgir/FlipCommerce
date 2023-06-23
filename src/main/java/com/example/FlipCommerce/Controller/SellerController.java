@@ -24,7 +24,7 @@ public class SellerController {
             SellerResponseDto sellerResponseDto = this.sellerService.addSeller(sellerRequestDto);
             return new ResponseEntity(sellerResponseDto, HttpStatus.CREATED);
         }catch (RuntimeException ex){
-            return new ResponseEntity("Failed to add seller!!", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(ex.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 }

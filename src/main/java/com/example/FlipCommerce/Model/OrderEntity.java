@@ -17,8 +17,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "orderEntity")
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Table(name = "orderEntity")
 public class OrderEntity {
 
     @Id

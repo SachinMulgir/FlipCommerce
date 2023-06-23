@@ -2,11 +2,7 @@ package com.example.FlipCommerce.Model;
 
 import com.example.FlipCommerce.Enum.Gender;
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.Order;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.util.ArrayList;
@@ -16,8 +12,9 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "customer")
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Builder
+@Table(name = "customer")
 public class Customer {
 
     @Id
@@ -48,6 +45,5 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     List<OrderEntity> orderEntityList = new ArrayList<>();
-
 
 }

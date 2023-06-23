@@ -2,6 +2,7 @@ package com.example.FlipCommerce.Service.Impl;
 
 import com.example.FlipCommerce.Dto.RequestDto.ProductRequestDto;
 import com.example.FlipCommerce.Dto.ResponseDto.ProductResponseDto;
+import com.example.FlipCommerce.Enum.Category;
 import com.example.FlipCommerce.Model.Product;
 import com.example.FlipCommerce.Model.Seller;
 import com.example.FlipCommerce.Repository.ProductRepository;
@@ -12,6 +13,8 @@ import com.example.FlipCommerce.exception.EntityNotPresentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -45,5 +48,20 @@ public class ProductServiceImpl implements ProductService {
 
         //3. Entity -> ResponseDto
         return ProductTransformer.productToProductResponseDto(savedProduct);
+    }
+
+    @Override
+    public List<ProductResponseDto> getProductByCategoryAndPrice(Category category, int price) {
+
+        List<Product> productList = this.productRepository.findByCategoryAndPrice(category, price);
+
+        List<ProductResponseDto> dtoList = new ArrayList<>();
+
+        for( Product p : productList ){
+            ProductResponseDto productResponseDto = ProductTransformer.productToProductResponseDto(p);
+            dtoList.add(productResponseDto);
+        }
+
+        return dtoList;
     }
 }

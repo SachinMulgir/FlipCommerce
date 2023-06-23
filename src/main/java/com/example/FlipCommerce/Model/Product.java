@@ -13,9 +13,9 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "product")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
+@Table(name = "product")
 public class Product {
 
     @Id
